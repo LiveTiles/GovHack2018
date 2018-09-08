@@ -1,9 +1,9 @@
 {
-    "name": "Hello Extensions",
-    "description" : "Base Level Extension",
+    "name": "Property Safety Advisor",
+    "description" : "Geoffery will advise you about property risks",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["declarativeContent"],
+    "permissions": ["activeTab","declarativeContent"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false
@@ -11,5 +11,19 @@
     "page_action": {
         "default_popup": "hello.html",
         "default_icon": "geoffrey-house.png"
-    }
+    },
+    "web_accessible_resources": [
+        "*.png"
+    ],
+    "content_scripts": [
+        {
+          "matches": [
+              "https://www.realestate.com.au/*",
+              "https://www.domain.com.au/*",
+              "https://www.allhomes.com.au/*"
+          ],
+          "css": ["content.css"],
+          "js": ["content.js"]
+        }
+    ]
 }

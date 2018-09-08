@@ -1,0 +1,13 @@
+.psa-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    border: 2px solid #ccc;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .15);
+    cursor: pointer;
+}

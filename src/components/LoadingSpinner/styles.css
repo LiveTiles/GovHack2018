@@ -1,0 +1,57 @@
+.loading-spinner {
+	align-items: center;
+	bottom: 0;
+    display: inline-flex;
+	left: 0;
+	justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@keyframes infinite-spinning {
+	from {
+		transform: rotate(0deg);
+    }
+    to {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner {
+	height: 25px;
+    opacity: 0;
+    transform: scale(0.0);
+    transition: all 0.4s;
+    width: 25px;
+}
+
+.spinner.loading {
+    opacity: 1.0;
+    transform: scale(2.0);
+}
+
+.spinner::before, .spinner::after {
+	animation: infinite-spinning 1.2s infinite;
+	animation-timing-function: ease-in-out;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-radius: 12px;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    content: '';
+    height: 24px;
+    left: -1px;
+    position: absolute;
+    transform: rotate(30deg);
+    top: -1px;
+    width: 24px;
+}
+
+.spinner::after {
+    animation-delay: 0.15s;
+}
+

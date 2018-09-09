@@ -1,0 +1,42 @@
+@import "../shared/variables.css";
+
+:root {
+    --track-background-color: var(--color-border-gray);
+    --thumb-background-color: var(--color-gray);
+}
+
+.scroll-area {
+    height: 100%;
+    width: 100%;
+}
+
+.scroll-content {
+    display: inline-block;
+    min-width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+/* All of this obviously looks incredibly ugly, but it's necessary since
+react-scrollbar doesn't allow us to set the individual class names of the
+scrollbar track. We may just want to consider pulling our own version;
+Also add div selectors because webpack isn't ordering rules properly */
+:global(.scrollarea div.scrollbar-container) {
+    background: var(--track-background-color);
+    border-radius: 3px;
+    opacity: 1 !important;
+}
+
+:global(.scrollarea div.scrollbar-container:hover) {
+    background: var(--track-background-color);
+    opacity: 1 !important;
+}
+
+:global(.scrollarea .scrollbar-container.horizontal div.scrollbar),
+:global(.scrollarea .scrollbar-container.vertical div.scrollbar) {
+    background: var(--thumb-background-color);
+    border-radius: inherit;
+    cursor: pointer;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#FFFFFF">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-fingerprint</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="inherit" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icon-fingerprint" stroke="inherit">
+            <g id="fingerprint-copy-2" transform="translate(4.000000, 2.000000)">
+                <polyline id="Stroke-1" points="10 12.5 10 9.5 8 8 6 9.5 6 12.5"></polyline>
+                <polyline id="Stroke-2" points="6 14 6 16.5 9.5 20 11.5 20 14.5 17"></polyline>
+                <path d="M4,9 L4,11" id="Stroke-4"></path>
+                <polyline id="Stroke-5" points="11.5 7.5 8.5 5 6 6.875"></polyline>
+                <path d="M8,11 L8,12" id="Stroke-6"></path>
+                <path d="M12,12 L12,13" id="Stroke-7"></path>
+                <path d="M12,9 L12,10" id="Stroke-8"></path>
+                <polyline id="Stroke-9" points="13 16 11.5 16 10 14"></polyline>
+                <polyline id="Stroke-10" points="4 13 4 17.5 6 19.5"></polyline>
+                <path d="M2,12 L2,11" id="Stroke-11"></path>
+                <path d="M2,16 L2,14" id="Stroke-12"></path>
+                <polyline id="Stroke-13" points="2 9.5 2 7.5 5.5 5"></polyline>
+                <polyline id="Stroke-14" points="7 4 8.5 3 12.5 6.5"></polyline>
+                <path d="M14,8 L14,11" id="Stroke-15"></path>
+                <path d="M14,13 L14,13.5" id="Stroke-16"></path>
+                <polyline id="Stroke-17" points="11 18 10.5 18 9 16"></polyline>
+                <path d="M8,14 L8,15" id="Stroke-18"></path>
+                <polyline id="Stroke-19" points="2 5 0 6.412 0 8.412"></polyline>
+                <path d="M5,3 L4,3.706" id="Stroke-20"></path>
+                <polyline id="Stroke-21" points="7 1.059 8.5 0 11.5 2.5"></polyline>
+                <path d="M0,8 L0,16.993" id="Stroke-22"></path>
+                <path d="M3,19.001 L2,18" id="Stroke-23"></path>
+                <polyline id="Stroke-24" points="13 4 16.203 7.203 16.203 10.203"></polyline>
+                <path d="M16,12 L16,15" id="Stroke-25"></path>
+            </g>
+        </g>
+    </g>
+</svg>

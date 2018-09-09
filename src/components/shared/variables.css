@@ -1,0 +1,51 @@
+:root {
+    /* Appearance */
+    --rounded-corner-radius: 3px;
+    --rounder-corner-radius: 6px;
+
+    /* Named Colors */
+    --color-gray: #707070;
+    --color-light-gray: #f2f2f2;
+    --color-dark-gray: #3d3a3b;
+    --color-border-gray: #ccc;
+    --color-background-gray: #f7f7f7;
+    --color-shadow-gray: rgba(0, 0, 0, 0.15);
+    --color-blackout-gray: rgba(0, 0, 0, 0.3);
+    --color-teal: #00be9c;
+    --color-light-teal: #00c8a4;
+    --color-dark-teal: #00b998;
+    --color-pink: #f39;
+    --color-highlight-blue: #dbe9ff;
+    --color-light-green: #98d99e;
+    --color-light-red: #f57a7a;
+    --color-light-yellow: #f5d47a;
+    --color-light-blue: #b5e2fa;
+
+    /* Theme Colors */
+    --color-primary: var(--color-teal);
+    --color-primary-text: white;
+    --color-secondary: white;
+    --color-secondary-text: var(--color-dark-gray);
+
+    --background-color: #f7f7f7;
+    --border-color: #cccccc;
+
+    /* State Colors */
+    --color-selected: var(--color-light-blue);
+    --color-active: var(--color-light-green);
+    --color-destructive: var(--color-light-red);
+    --color-destructive-light: #f68383;
+    --color-destructive-dark: #f47171;
+    --color-away: var(--color-light-yellow);
+
+    /* Fonts */
+    --base-font-size: 15px;
+    --h4-font-size: 0.9375rem;
+    --h5-font-size: 0.8125rem;
+
+    /* Spacing */
+    --tight-spacing: 5px;
+    --medium-spacing: 10px;
+    --wide-spacing: 15px;
+    --extra-wide-spacing: 20px;
+}

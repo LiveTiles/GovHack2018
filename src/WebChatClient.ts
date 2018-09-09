@@ -1,0 +1,1 @@
+export { WebChat as WebChatClient } from './features/WebChat';

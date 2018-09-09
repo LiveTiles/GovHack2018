@@ -2,24 +2,43 @@
     position: fixed;
     bottom: 25px;
     right: 25px;
-    height: 64px;
-    width: 64px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     background: white;
     padding: 5px;
-    border: 2px solid #ccc;
     box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .15);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;    
 }
 
 .psa-bot-container {
     position: fixed;
-    bottom: 150px;
+    bottom: 125px;
     right: 25px;
-    width: 300px;
+    width: 450px;
     height: 600px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .15);
     display: none;
+    z-index: 999999;
+    overflow: hidden;
+}
+
+.psa-bot-container-header {
+    height: 20px;
+    background-color: #17e2bb;
+}
+
+.psa-bot-cover {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
 }

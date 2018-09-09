@@ -1,0 +1,53 @@
+@import '../shared/variables';
+
+:root {
+    --option-end-padding: var(--extra-wide-spacing);
+    --option-side-padding: var(--wide-spacing);
+    --avatar-circle-size: 40px;
+
+    --avatar-padding: var(--option-side-padding);
+
+    --option-description-font-size: 13px;
+    --option-description-margin-top: var(--tight-spacing);
+}
+
+:export {
+    var-circle-size: var(--avatar-circle-size);
+    var-default-avatar-color: var(--color-active);
+}
+
+.dropdown-selector-bot-option {
+    background-color: inherit;
+    color: inherit;
+    display: flex;
+    padding: var(--option-end-padding) var(--option-side-padding);
+
+    &:hover {
+        background-color: inherit;
+        color: inherit;
+    }
+}
+
+.avatar-column {
+    flex: 0 0 auto;
+}
+
+.avatar {
+    display: inline-block;
+    height: var(--avatar-circle-size);
+    margin-right: var(--avatar-padding);
+    width: var(--avatar-circle-size);
+}
+
+.option-info-column {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.option-description {
+    color: inherit;
+    font-size: var(--option-description-font-size);
+    margin-top: var(--option-description-margin-top);
+}

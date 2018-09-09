@@ -1,0 +1,41 @@
+:root {
+    --size-extra-large: 150px;
+    --size-large: 100px;
+    --size-medium: 50px;
+    --size-small: 25px;
+}
+
+.base {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.extra-large {
+    composes: base;
+    width: var(--size-extra-large);
+    height: var(--size-extra-large);
+}
+
+.large {
+    composes: base;
+    width: var(--size-large);
+    height: var(--size-large);
+}
+
+.medium {
+    composes: base;
+    width: var(--size-medium);
+    height: var(--size-medium);
+}
+
+.small {
+    composes: base;
+    width: var(--size-small);
+    height: var(--size-small);
+}
+
+.full {
+    composes: base;
+    height: 100%;
+    width: 100%;
+}

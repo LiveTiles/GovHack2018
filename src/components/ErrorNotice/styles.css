@@ -1,0 +1,18 @@
+@import "../shared/variables";
+
+:root {
+    --error-icon-size: 60px;
+}
+
+.webchat-error {
+    margin-top: -15px;
+}
+
+.webchat-error-icon {
+    display: block;
+    height: var(--error-icon-size);
+    margin-bottom: var(--medium-spacing);
+    margin-left: auto;
+    margin-right: auto;
+    width: var(--error-icon-size);
+}

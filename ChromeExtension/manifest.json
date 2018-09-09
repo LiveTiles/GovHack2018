@@ -1,11 +1,17 @@
 {
     "name": "Property Safety Advisor",
-    "description" : "Geoffery will advise you about property risks",
+    "description": "Geoffery will advise you about property risks",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["activeTab","declarativeContent", "notifications"],
+    "permissions": [
+        "activeTab",
+        "declarativeContent",
+        "notifications"
+    ],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": false
     },
     "page_action": {
@@ -16,13 +22,20 @@
     ],
     "content_scripts": [
         {
-          "matches": [
-              "https://www.realestate.com.au/*",
-              "https://www.domain.com.au/*",
-              "https://www.allhomes.com.au/*"
-          ],
-          "css": ["content.css"],
-          "js": ["content.js"]
+            "matches": [
+                "https://www.realestate.com.au/*",
+                "https://www.domain.com.au/*",
+                "https://www.allhomes.com.au/*"
+            ],
+            "css": [
+                "content.css",
+                "/dist/css/main.css"
+            ],
+            "js": [
+                "/dist/vendor.bundle.js",
+                "/dist/js/main.js",
+                "content.js"
+            ]
         }
     ]
 }

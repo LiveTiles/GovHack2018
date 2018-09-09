@@ -1,0 +1,60 @@
+@import "@lt/lt-bots-webchat/built/shared/variables";
+@import "../../components/shared/variables";
+
+:root {
+    --font-family: 'Lato', sans-serif;
+
+    --logo-height: 100px;
+    --logo-width: 150px;
+
+    /* Set z-index because display: none interacts strangely with the scrollbar */
+    --visible-webchat-layer: 0;
+    --hidden-webchat-layer: calc(var(--visible-webchat-layer) - 1);
+    --webchat-dropdown-layer: calc(var(--visible-webchat-layer) + 1);
+    --loading-layer: calc(var(--webchat-dropdown-layer) + 1);
+}
+
+:export {
+    var-visible-webchat-layer: var(--visible-webchat-layer);
+    var-hidden-webchat-layer: var(--hidden-webchat-layer);
+    var-loading-layer: var(--loading-layer);
+}
+
+.webchat {
+	font-family: var(--font-family);
+	position: relative;
+}
+
+.loading {
+    background-color: white;
+    z-index: var(--loading-layer);
+}
+
+/* Qualify with div because webpack isn't ordering rules properly */
+div.dropdown-selector {
+    z-index: var(--webchat-dropdown-layer);
+
+    @media screen and (max-height: 150px) {
+        display: none;
+    }
+}
+
+.webchat-window-container {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: var(--visible-webchat-layer);
+    visibility: visible;
+
+    &.hidden {
+        z-index: var(--hidden-webchat-layer);
+        visibility: hidden;
+    }
+}
+
+.webchat-window {
+    z-index: var(--visible-webchat-layer);
+}

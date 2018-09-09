@@ -1,0 +1,141 @@
+@import "../shared/variables.css";
+
+:root {
+    --selector-padding: var(--extra-wide-spacing);
+    --selector-arrow-size: 12px;
+    --selector-x-button-size: 25px;
+
+    --dropdown-display-height: 60px;
+    --dropdown-list-max-height: 360px;
+    --dropdown-item-background-layer: 0;
+    --dropdown-item-font-color: var(--color-dark-gray);
+    --dropdown-background-hover-color: var( --color-background-gray);
+    --dropdown-item-border-color: var(--color-light-gray);
+    --dropdown-item-selected-opacity: 0.8;
+    --dropdown-animation-duration: 100;
+}
+
+:export {
+    var-dropdown-animation-duration: var(--dropdown-animation-duration);
+}
+
+.dropdown-selector {
+	background-color: inherit;
+	box-sizing: border-box;
+    color: var(--color-primary-text);
+    display: flex;
+	flex-direction: column;
+	height: auto;
+    justify-content: center;
+    max-height: 100%;
+    position: relative;
+}
+
+.selected-option-display {
+    box-sizing: border-box;
+    flex: 0 0 var(--dropdown-display-height);
+    padding: var(--selector-padding);
+    position: relative;
+}
+
+.selected-option-display-expanded {
+    background-color: var(--color-primary);
+}
+
+.selected-option-display-text {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.dropdown-arrow {
+    display: inline-block;
+    height: var(--selector-arrow-size);
+    left: var(--medium-spacing);
+    position: relative;
+    top: 1px;
+    width: var(--selector-arrow-size);
+}
+
+.dropdown-x-button {
+    cursor: pointer;
+    height: var(--selector-x-button-size);
+    position: absolute;
+    right: var(--selector-padding);
+    top: calc(50% - var(--selector-x-button-size) / 2);
+    width: var(--selector-x-button-size);
+}
+
+/* Add extra specificity because webpack isn't ordering the rules properly */
+div.dropdown-list {
+    animation-duration: var(--dropdown-animation-duration)ms;
+    animation-name: list-expand-out;
+    background-color: var(--color-secondary);
+    border-top: 1px solid var(--color-border-gray);
+    box-shadow: 0 2px 4px 0 var(--color-shadow-gray);
+    flex: 1 1 auto;
+    height: auto;
+    line-height: normal;
+    max-height: var(--dropdown-list-max-height);
+    transform-origin: top;
+}
+
+@keyframes list-expand-out {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+div.dropdown-list-closing {
+    animation-duration: var(--dropdown-animation-duration)ms;
+    animation-name: list-collapse-in;
+    transform: scaleY(0)
+}
+
+@keyframes list-collapse-in {
+    from { transform: scaleY(1); }
+    To { transform: scaleY(0); }
+}
+
+.dropdown-list-content {
+    background-color: var(--color-primary);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-list-item {
+    border-bottom: 1px solid var(--dropdown-item-border-color);
+    color: var(--dropdown-item-font-color);
+    cursor: pointer;
+    position: relative;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.dropdown-list-item-selected {
+    color: var(--color-primary-text);
+}
+
+.dropdown-list-item-background {
+    background-color: var(--color-secondary);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: var(--dropdown-item-background-layer); /* To put background behind text */
+
+    @nest .dropdown-list-item:hover & {
+        background-color: var(--dropdown-background-hover-color);
+    }
+
+    @nest .dropdown-list-item-selected & {
+        opacity: calc(1 - var(--dropdown-item-selected-opacity));
+    }
+}
+
+.dropdown-list-item-content {
+    position: relative;
+    z-index: calc(var(--dropdown-item-background-layer) + 1);
+}

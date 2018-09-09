@@ -1,0 +1,10 @@
+:root {
+    --default-status-circle: 14px;
+}
+
+.circle {
+    margin-bottom: 1px;
+    border-radius: 50%;
+    height: var(--default-status-circle);
+    width: var(--default-status-circle);
+}

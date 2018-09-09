@@ -1,0 +1,48 @@
+@import "../shared/variables";
+
+:root {
+    --notice-message-width: 300px;
+
+    --logo-size: 150px;
+    --logo-top-margin: -10%;
+    --logo-transition-duration: 0.4;
+
+    --message-top-margin: 60%;
+    --message-top-margin-small-screen: 65%;
+}
+
+.webchat-notice {
+    align-items: center;
+    background-color: var(--color-primary);
+	display: flex;
+	height: 100%;
+	justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.webchat-notice-message {
+    color: var(--color-primary-text);
+    left: 50%;
+    margin-left: calc(var(--notice-message-width) / -2);
+    position: absolute;
+    text-align: center;
+    top: var(--message-top-margin);
+    width: var(--notice-message-width);
+
+    @media screen and (max-height: 750px) {
+        top: var(--message-top-margin-small-screen);
+    }
+}
+
+.custom-logo {
+	position: relative;
+	top: var(--logo-top-margin);
+}
+
+.custom-logo-image {
+    display: inline-block;
+	max-height: var(--logo-size);
+    transition: all var(--logo-transition-duration)s;
+	max-width: var(--logo-size);
+}

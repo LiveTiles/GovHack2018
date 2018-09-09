@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "src",
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "lib": ["es6", "es7", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "paths": {
+            "config": ["../config/environment/config"]
+        },
+        "removeComments": true,
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "exclude": [
+        "dist",
+        "build",
+        "node_modules",
+        "webpack"
+    ]
+}

@@ -1,0 +1,83 @@
+@import "../shared/variables";
+
+:root {
+    --login-button-height: 50px;
+    --login-button-width: 200px;
+    --login-icon-size: 25px;
+    --login-transition-duration: 0.2s;
+}
+
+.login-button {
+	background-color: var(--color-primary);
+    border-radius: var(--rounded-corner-radius);
+    border: 2px solid var(--color-primary-text);
+    color: var(--color-primary);
+    cursor: pointer;
+	fill: var(--color-primary);
+	font-size: var(--base-font-size);
+	height: var(--login-button-height);
+    padding: 0;
+    position: relative;
+    stroke: var(--color-primary);
+	white-space: nowrap;
+	width: var(--login-button-width);
+
+	&:hover {
+		& .login-mask {
+			background-color: var(--color-primary-text);
+		}
+
+		& .login-icon {
+			stroke: inherit;
+
+			& > svg {
+				stroke: inherit;
+			}
+		}
+
+		& .login-text {
+			color: inherit;
+		}
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.login-mask {
+	background-color: transparent;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	transition: background-color var(--login-transition-duration) linear;
+	top: 0;
+}
+
+.login-icon {
+	display: inline-block;
+	height: var(--login-icon-size);
+	left: calc(-1 * (var(--tight-spacing) + var(--login-icon-size) / 2));
+	position: relative;
+	top: 2px;
+	width: var(--login-icon-size);
+
+	> svg {
+		stroke: var(--color-primary-text);
+		transition: stroke var(--login-transition-duration) linear;
+	}
+}
+
+.login-text {
+	color: var(--color-primary-text);
+	display: inline-block;
+	left: calc(-1 * var(--login-icon-size )/ 2);
+	max-width: calc(100% - (var(--login-icon-size) + var(--medium-spacing) * 4));
+	overflow: hidden;
+	position: relative;
+	text-overflow: ellipsis;
+	top: -2px;
+	transition: color var(--login-transition-duration) linear;
+	white-space: nowrap;
+}

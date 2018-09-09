@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-fail</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-fail">
+            <g id="icon-failed" transform="translate(3.000000, 1.000000)">
+                <polygon id="Fill-2432" fill-opacity="0.25" fill="#FFFFFF" fill-rule="nonzero" points="39.5238095 32.6956522 22 42.4782609 4.47619048 32.6956522 0.0952380952 35.9565217 22 47.9130435 43.9047619 35.9565217"></polygon>
+                <polygon id="Fill-2433" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" points="22 39.2173913 18.7142857 35.9565217 22 32.6956522 25.2857143 35.9565217"></polygon>
+                <polygon id="Fill-2434" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" points="23.0952381 28.3478261 20.9047619 28.3478261 18.7142857 10.9565217 25.2857143 10.9565217"></polygon>
+                <polygon id="Stroke-6202" stroke="#FFFFFF" stroke-width="2.17391304" stroke-linecap="round" stroke-linejoin="round" points="43.9047619 35.9565217 22 47.9130435 0.0952380952 35.9565217 0.0952380952 12.0434783 22 0.0869565217 43.9047619 12.0434783"></polygon>
+                <polygon id="Stroke-6203" stroke="#FFFFFF" stroke-width="2.17391304" stroke-linecap="round" stroke-linejoin="round" points="22 39.2173913 18.7142857 35.9565217 22 32.6956522 25.2857143 35.9565217"></polygon>
+                <polygon id="Stroke-6204" stroke="#FFFFFF" stroke-width="2.17391304" stroke-linecap="round" stroke-linejoin="round" points="23.0952381 28.3478261 20.9047619 28.3478261 18.7142857 10.9565217 25.2857143 10.9565217"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

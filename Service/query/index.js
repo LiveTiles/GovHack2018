@@ -1,7 +1,7 @@
 const request = require('request-promise');
 const querystring = require('querystring');
 
-module.exports = function query(context, req){
+function query(context, req){
     const address = req.query.address.toUpperCase();
  
     var addressQueryString = querystring.stringify({
@@ -36,7 +36,8 @@ module.exports = function query(context, req){
                     const coordinates = result.features[0].geometry;
                     const tfsQueryString = querystring.stringify({
                         f: 'json',
-                        token: 'Gh1iXb-zIoXlU2AQ69Mdwhz7vh-N-QrCwn5WhjB03qFBD6xmW8cwxxipQnPnkAGj3DPXnnyX_ljBl1I2kJPzEaglGIwesvnY3AqqEbSf1YZtnHcLV9aKg8hDSMRhEENIbICtXL04oTPiDCygt8VanyT_nk2FMap79GdhmQKf9H5FsEfMcxVy6A2ODENsEtPwXHL5ILGZI8XVJmON60O8h_Y8F3pw3R9xZZpgf1biGS7eqfqcdgNt7cr4ijgLp73B',
+                        
+                        token: 'Gh1iXb-zIoXlU2AQ69MdwmX4OlL2ayV3yYp5mE7892I0cbA941sVV75Ay9NqWJUIA68CJqVDT083l4VqEo6niLhE1pffqb03h5wO9L812DlmRdFeDNTRRakf_rYayTsw',
                         geometry: `${coordinates.x}, ${coordinates.y}`,
                         sr: '3857',
                         layers: 'visible:6',
@@ -165,7 +166,7 @@ module.exports = function query(context, req){
                                 return result.results.map(result => {
                                     return {
                                         "name": "HERITAGE_LISTED",
-                                        "detail": result.name
+                                        "detail": `This property is heritage listed.`
                                     }
                                 })
                             }),
@@ -179,13 +180,28 @@ module.exports = function query(context, req){
                                 const high = result.results.find(result => result.attributes["HAZARD_BAND"] == "High");
                                 const acceptable = result.results.find(result => result.attributes["HAZARD_BAND"] == "Acceptable");
                                 const low = result.results.find(result => result.attributes["HAZARD_BAND"] == "Low");
-
+                                const medium = result.results.find(result => result.attributes["HAZARD_BAND"] == "Medium");
+                                
                                 if (high) return [{
-                                    name: 'EROSION_HIGH'
+                                    name: 'EROSION_HIGH',
+                                    detail: `Hazard is likely to affect an
+                                    area, with an impact likely to be
+                                    considered intolerable.`
+                                }]
+
+                                if (medium) return [{
+                                    name: 'EROSION_MEDIUM',
+                                    detail: `Hazard may affect an area, and
+                                    level of impact if it does is likely
+                                    to be significant`
                                 }]
 
                                 if (low) return [{
-                                    name: 'EROSION_LOW'
+                                    name: 'EROSION_LOW',
+                                    detail: `Hazard may affect an area, but
+                                    frequency or magnitude is low
+                                    enough that minimal damage or
+                                    loss is likely to be experienced.`
                                 }]
 
                                 return []
@@ -198,38 +214,58 @@ module.exports = function query(context, req){
                                     return [];
 
                                 const low = result.results.find(result => result.attributes['Hazard Band'] === 'Low');
-                                const medium = result.results.find(result => result.attributes['Hazard Band'] === 'Medium' || result.attributes['Hazard Band'] === 'Medium - Active');
+                                const medium = result.results.find(result => result.attributes['Hazard Band'] === 'Medium');
+                                const mediumActive = result.results.find(result => result.attributes['Hazard Band'] === 'Medium - Active')
                                 const high = result.results.find(result => result.attributes['Hazard Band'] === 'High');
 
                                 if (high) return [{
-                                    name: 'LANDSLIP_HIGH'
+                                    name: 'LANDSLIP_HIGH',
+                                    detail: `The site is within a declared Landslip A area.
+                                    All use and development requires significant investigation and engineered
+                                    solutions to mitigate the natural hazard and enable the development to achieve
+                                    and maintain a tolerable level of risk, however, the mitigation measures may
+                                    never achieve comprehensive levels of security and safety.
+                                    The high band covers less than 0.1% of the land area, vacant parcels and
+                                    residential buildings,`
                                 }]
 
                                 if (medium) return [{
-                                    name: 'LANDSLIP_MEDIUM'
+                                    name: 'LANDSLIP_MEDIUM',
+                                    detail: `The area has known landslide features, or is within a landslide susceptibility
+                                    zone, or has legislated controls to limit disturbance of adjacent unstable areas.
+                                    Planning controls are necessary for all use and development to ensure that risks
+                                    are tolerable (as recommended by AGS 2007a). Any vulnerable or hazardous
+                                    use will only be allowed in exceptional circumstances.
+                                    The medium band covers 15% of the land area of Tasmania, 3% of vacant
+                                    parcels and 3% of residential buildings.
+                                    `
+                                }]
+
+                                if (mediumActive) return [{
+                                    name: 'LANDSLIP_MEDIUM_ACTIVE',
+                                    detail: `The area has known recently active landslide features.
+                                    Planning controls are necessary for all use and development to ensure that risks
+                                    are tolerable (ABCB 2006 Landslide Hazards – Handbook for good hillside
+                                    construction). Any vulnerable and hazardous uses or post-disaster and
+                                    catastrophic risk-based uses are prohibited.
+                                    The medium-active band covers less than 0.1% of the land area, vacant parcels
+                                    and residential buildings,`
                                 }]
 
                                 if (low) return [{
-                                    name: 'LANDSLIP_LOW'
+                                    name: 'LANDSLIP_LOW',
+                                    detail: `This area has no known landslides, however it has been identified as being
+                                    susceptible to landslide by Mineral Resources Tasmania (MRT).
+                                    While non-construction requirements are not necessary for most use and
+                                    development, controls may be necessary to reduce the risks associated with
+                                    vulnerable and hazardous uses or post-disaster and catastrophic risk-based use
+                                    to ensure that risks are tolerable (as recommended by AGS 2007a).
+                                    The low band covers 19% of the land area of Tasmania, 6% of vacant parcels
+                                    and 5% of residential buildings.
+                                    `
                                 }]
 
                                 return [];
-                            })
-                            .then(result => {
-                                const high = result.find(result => result.name === 'LANDSLIP_HIGH')
-                                const medium = result.find(result => result.name === 'LANDSLIP_MEDIUM')
-                                const low = result.find(result => result.name === 'LANDSLIP_LOW')
-
-                                if (high)
-                                    return [high];
-
-                                if (medium)
-                                    return [medium];
-
-                                if (low)
-                                    return [low];
-
-                                return []
                             }),
                         request(`https://services.thelist.tas.gov.au/arcgis/rest/services/Public/Infrastructure/MapServer/identify?${damFloodQueryString}`, {
                             json: true,
@@ -240,7 +276,8 @@ module.exports = function query(context, req){
                             .then(result => {
                                 if (result.results && result.results.length > 0)
                                     return [{
-                                        name: 'DAM_FLOOD_RISK'
+                                        name: 'DAM_FLOOD_RISK',
+                                        detail: `Water Course: ${result.results.attributes['Water Course']} Dam: ${result.results.attributes['Dam']}`
                                     }]
                                 else
                                     return []
@@ -255,17 +292,25 @@ module.exports = function query(context, req){
 
                                 if (high)
                                     return [{
-                                        name: 'COASTAL_FLOOD_HIGH'
+                                        name: 'COASTAL_FLOOD_HIGH',
+                                        detail: `Area
+                                        vulnerable to highest astronomical tide now; and inundation from the mean high tide
+                                        by 2050 rounded up to the nearest 100 mm.
+                                            `
                                     }]
 
                                 if (medium)
                                     return [{
-                                        name: 'COASTAL_FLOOD_MEDIUM'
+                                        name: 'COASTAL_FLOOD_MEDIUM',
+                                        detail: `Area vulnerable to a 1% AEP storm event`
                                     }]
 
                                 if (low)
                                     return [{
-                                        name: 'COASTAL_FLOOD_LOW'
+                                        name: 'COASTAL_FLOOD_LOW',
+                                        detail: `Area vulnerable to a 1%
+                                        AEP storm event in 2100 rounded up to the nearest 100mm plus 300 mm added for
+                                        freeboard.`
                                     }]
 
                                 return [];
@@ -281,11 +326,15 @@ module.exports = function query(context, req){
                                 const twentyOne = result.results.find(result => result.attributes['TR_LEV_RU'] == '2100');
 
                                 if (fifty) return [{
-                                    name: 'SEA_RISE_2050'
+                                    name: 'SEA_RISE_2050',
+                                    detail: `vulnerable to a 1% AEP storm event in 2050 rounded up to
+                                    the nearest 100mm plus 300 mm added for freeboard.`
                                 }]
 
                                 if (twentyOne) return [{
-                                    name: 'SEA_RISE_2100'
+                                    name: 'SEA_RISE_2100',
+                                    detail: `vulnerable to a 1% AEP storm event in 2100 rounded up to the
+                                    nearest 100mm plus 300 mm added for freeboard.`
                                 }]
 
                                 return []
@@ -320,3 +369,5 @@ module.exports = function query(context, req){
             context.done();
         });
 }
+
+module.exports = query;
